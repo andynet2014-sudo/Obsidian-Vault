@@ -1,0 +1,232 @@
+{
+  "main": {
+    "id": "48177ccc612ca2ab",
+    "type": "split",
+    "children": [
+      {
+        "id": "291d372362a01178",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "17d69a490204bda3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "깃/Claude Code 쓸 때 꼭 알아야 할 Git, GitHub 완벽 정리  비개발자도 한 번만 보면 끝.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Claude Code 쓸 때 꼭 알아야 할 Git, GitHub 완벽 정리  비개발자도 한 번만 보면 끝"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "5cce4ded48305e89",
+    "type": "split",
+    "children": [
+      {
+        "id": "b110e7fd91cdf670",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bc22eea81b6182c8",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "파일 탐색기"
+            }
+          },
+          {
+            "id": "88ac1cddcb3d653e",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": true,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "검색"
+            }
+          },
+          {
+            "id": "3434654e8aa3f4fe",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "북마크"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "eb9f8fe62c79717e",
+    "type": "split",
+    "children": [
+      {
+        "id": "732f740e2fc1cbe1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8b31f0c1abe32a26",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "무제.base",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "백링크"
+            }
+          },
+          {
+            "id": "f195ccbf23608210",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "무제.base",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "나가는 링크"
+            }
+          },
+          {
+            "id": "8c2db9dbde73d2c7",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "태그"
+            }
+          },
+          {
+            "id": "f0cd6927c4329d6f",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "모든 속성"
+            }
+          },
+          {
+            "id": "f001bfe85fd20655",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "무제.base",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "개요"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:빠른 전환기 열기": false,
+      "graph:그래프 뷰 열기": false,
+      "canvas:새 캔버스 만들기": false,
+      "daily-notes:오늘의 일일 노트 열기": false,
+      "templates:템플릿 삽입": false,
+      "command-palette:명령어 팔레트 열기": false,
+      "bases:새 베이스 생성하기": false
+    }
+  },
+  "active": "17d69a490204bda3",
+  "lastOpenFiles": [
+    "삿포로/삿포로그 4박5일 삿포로 여행 🇯🇵 Day4  조잔케이 유라쿠소안 솔직후기  료칸 추천, 프라이빗 온천(전세탕), 가이세키(석식조식), 라멘, 유카타 대여, 공항택시 예약.md",
+    "깃/Claude Code 쓸 때 꼭 알아야 할 Git, GitHub 완벽 정리  비개발자도 한 번만 보면 끝.md",
+    "깃",
+    "삿포로/홋카이도 5박6일🇯🇵 Ep.4 조잔케이 다이치 호텔 스이잔테이🛁 술과 음식이 무제한인 료칸 여행⭐️✨ 료칸 숙박 후기, 일본 온천 여행🍀.md",
+    "삿포로/🇯🇵삿포로 여행 근교 온천마을 인기 료칸 솔직한 리뷰 │ 유라쿠소안 Yurakusoan.md",
+    "삿포로/1 1인 20만원대로 다녀온 삿포로 료칸 sapporo onsen japantravel.md",
+    "삿포로",
+    "집/46 영등포휴젠느 B동 (H부동산).md",
+    "집/46 영등포휴젠느 B동 (제외).md",
+    "집/45 퍼스트빌리지 1동 (제외).md",
+    "집/45 퍼스트빌리지 1동 (H부동산).md",
+    "집/44 당산동6가 해울빌 1동 (제외).md",
+    "집/43 신당동 리버파크뷰 (제외).md",
+    "집/42 광희동2가 빌라 (제외).md",
+    "집/41 당산디벨리움 101동 (선유나무부동산, 재등장).md",
+    "집/40 신현빌5차(주상복합) 1동 (영등포시장, 나무누리부동산).md",
+    "집/39 양평브릴리언트 B동 (제외).md",
+    "집/38 프리스틴 (H부동산) (영등포시장역 7분).md",
+    "집/37 골드라인 B동 (제외).md",
+    "집/36 미라벨 1동 (제외).md",
+    "집/35 당산디벨리움 101동 (제외).md",
+    "집/34 당산동3가 하이캐슬 (제외).md",
+    "집/33 브릴리언트양평2차 1동 (제외).md",
+    "집/32 양평동4가 빌라 아트리버타운 (당산역).md",
+    "집/31 당산더채움 (101동·103동 복수매물).md",
+    "집/30 만리동1가 빌라 (제외).md",
+    "집/29 글로벌MJ 1동 (제외).md",
+    "집/28 트리베카 A동 (제외).md",
+    "집/data/매물실제위치.html",
+    "집/data/매물데이터.json",
+    "집구하기/data/매물대시보드.html",
+    "집/data",
+    "집구하기/매물대시보드.html",
+    "집구하기/매물데이터.json",
+    "집",
+    "무제.canvas",
+    "클로드",
+    "알상무/알상무 자료 캔버스.canvas"
+  ]
+}

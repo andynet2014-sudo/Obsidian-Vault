@@ -1,0 +1,42 @@
+{
+	"nodes":[
+		{"id":"grp-flow","type":"group","x":-40,"y":1160,"width":1800,"height":460,"label":"지수 흐름 · 순환매 · 전술 · 기타 종목"},
+		{"id":"grp-samsung","type":"group","x":-40,"y":660,"width":920,"height":460,"label":"삼성전자 · SK하이닉스 투자방향성"},
+		{"id":"grp-macro","type":"group","x":920,"y":660,"width":920,"height":460,"label":"매크로 · 유동성"},
+		{"id":"grp-src","type":"group","x":-40,"y":-40,"width":1320,"height":320,"label":"원본 자료 (시간순)"},
+		{"id":"grp-sum","type":"group","x":400,"y":300,"width":440,"height":320,"label":"통합 정리 노트"},
+		{"id":"s1","type":"file","file":"알상무/지표추적자 (0806 목).md","x":0,"y":0,"width":360,"height":240,"color":"5"},
+		{"id":"s2","type":"file","file":"알상무/RTS알상무의 한주정리전략 - 미묘한 변화 (0807 금).md","x":440,"y":0,"width":360,"height":240,"color":"5"},
+		{"id":"s3","type":"file","file":"알상무/지표추적자 + 다음주초 전술 (0809).md","x":880,"y":0,"width":360,"height":240,"color":"5"},
+		{"id":"card-samsung","type":"text","text":"# 삼성전자 투자방향성\n\n**8/6(목)** 23만원대(-6%) · 26만원 회복해야 안심(+13% 상승 필요)\n\n**8/7(금)** 21일선<121일선<구름대 전부 이탈, 기술적으로 좋은 게 하나도 없음 · 재진입 안전권은 25~26만원 위\n\n**8/9(일)** 23.1만원 소폭 반등 · 컨센서스 목표가 30만원대(과거 40~60만원에서 하향 추세)\n\n> \"AI/메모리를 당위로 보면 안 된다 — 확률로 접근해야 가격 예측 가능\"","x":0,"y":700,"width":400,"height":380,"color":"1"},
+		{"id":"card-hynix","type":"text","text":"# SK하이닉스 투자방향성\n\n**8/6(목)** 150만원(120일선 이탈) · 컨센서스 목표가 300만원, 개인 목표가는 약 250만원\n\n**8/7(금)** 수·목·금 급락 전환 · 목표 180만원(급락 전 레벨) 회복이 1차 목표\n\n**8/9(일)** 142.2만원 · 개별 악재: ① 주주환원 소극적(9월 발표설) ② HBM 저가공급 루머 ③ 최태원 회장 공격적 행보 부담\n\n> 재진입 기준: 180만원(120일선) 회복","x":440,"y":700,"width":400,"height":380,"color":"1"},
+		{"id":"card-macro","type":"text","text":"# 금리·환율·원자재\n\n**미 10년물** 8/6 4.61% → 8/9 4.64%(8/1 고용쇼크로 인상압박 완화)\n\n**원달러** 8/6 1,423원 → 8/9 1,400원선 하회 압박 지속\n\n**한국 국채3년** 3.7%대, 명목성장률 대비 과도하게 낮은 채권금리\n\n**WTI** 75~77달러, 백워데이션 구조(강세 신호)\n\n**금** 4,300~4,400달러대, 4,500달러면 매수 검토\n\n**구리** 사상 최고가(생산 차질+데이터센터 수요)","x":960,"y":700,"width":400,"height":380,"color":"3"},
+		{"id":"card-fed","type":"text","text":"# 연준·BOJ 엔화 개입 사건\n\n뉴욕 연준이 엔화 강세 유도를 위해 **유로화를 매도**(달러 아님) → ECB에 사전 통보 없이 진행 → 라가르드 총재가 베센트 재무장관에 항의\n\n브레튼우즈 체제 붕괴(1980년대) 이후 이례적 사건으로 평가\n\n**유동성 지표(신규)**: 연준+ECB+BOJ 자산 5주 이동평균이 6월말~7월초 -95조원 급감(7월 급락 배경 추정) → 7월말부터 플러스 전환(최근 반등 배경 추정)","x":1400,"y":700,"width":400,"height":380,"color":"3"},
+		{"id":"card-index","type":"text","text":"# 코스피·코스닥 지수 흐름\n\n**코스피** 8/6 6,296 → 8/7 주간 -5%(7주 연속 하락, 9,300→6,200대) → 8/9 6,258\n\n**코스닥** 8/6 800(연속 상승) → 8/7 주간 +10% → 8/9 798(저점 630~642로 재확인, 666 아님)\n\n**나스닥 신규 관찰지표(8/9)**: S&P·다우는 신고가, 나스닥은 아직 미달 — 한국 시장 안정 판단의 기준으로 격상","x":0,"y":1200,"width":400,"height":380,"color":"4"},
+		{"id":"card-rotation","type":"text","text":"# 순환매 조짐 (8/7 히트맵)\n\n이번 주 **삼성전자·하이닉스만 10%+ 하락**, 나머지 종목은 오히려 상승 → 코스피 지수는 -5%에 그침\n\n오너 언론 노출 많은 그룹주(SK·최태원)는 강세, 노출 적은 그룹(삼성·현대차)은 약세라는 경험칙\n\n**신용융자**: 코스닥은 거의 소진(6조, 긍정적) vs 코스피는 아직 20조 잔존(추가 청산 여지)","x":440,"y":1200,"width":400,"height":380,"color":"4"},
+		{"id":"card-tactics","type":"text","text":"# 다음주초 전술 (8/9 핵심)\n\n**레인지**: 금요일 종가 대비 +5% / -4%\n\n**비상 손절선**: 하루라도 -7% 마감 시 매수 중단\n\n**홀드 전략**: 물린 물량은 홀드가 합리적, 반등 시 고점 대비 10~15% 구간에서 일부 매도 고려\n\n**매매 방식**: 분할매수로 평단 낮추기\n\n**저항선**: 1차 6,700(120일선) / 6,500(60일선)\n\n**외국인 지표**: 현물 순매수만 참고\n\n**섹터 분산**: 반도체 외 경기방어주·배당주로 분산","x":880,"y":1200,"width":400,"height":380,"color":"2"},
+		{"id":"card-etc","type":"text","text":"# 기타 종목·섹터 코멘트\n\n**52주 신고가(8/7)**: GS·KT&G·신한지주 — 경기방어주·배당주 강세\n\n**두산에너빌리티** 7만원 돌파(SMR 상용화 전이라 시기상조 판단)\n\n**LS일렉트릭** 변압기 섹터 채널 상단 돌파 시작\n\n**오라클** 계속 버팀 → 오픈AI·데이터센터 밸류체인 안도 신호로 관찰 지속\n\n**\"빈집털이\" 순환매**: 하이트진로·신대양제지 등 소외주 반등\n\n**증권주 약세**(미래에셋·키움) vs **은행주 견조**(KB금융·신한지주)","x":1320,"y":1200,"width":400,"height":380}
+	],
+	"edges":[
+		{"id":"e-sam3","fromNode":"s3","fromSide":"bottom","toNode":"card-samsung","toSide":"top","color":"1"},
+		{"id":"e-hyn3","fromNode":"s3","fromSide":"bottom","toNode":"card-hynix","toSide":"top","color":"1"},
+		{"id":"e-mac2","fromNode":"s3","fromSide":"bottom","toNode":"card-macro","toSide":"top","color":"3"},
+		{"id":"e-fed2","fromNode":"s3","fromSide":"bottom","toNode":"card-fed","toSide":"top","color":"3"},
+		{"id":"e-idx3","fromNode":"s3","fromSide":"bottom","toNode":"card-index","toSide":"top","color":"4"},
+		{"id":"e-tac1","fromNode":"s3","fromSide":"bottom","toNode":"card-tactics","toSide":"top","color":"2"},
+		{"id":"e-etc3","fromNode":"s3","fromSide":"bottom","toNode":"card-etc","toSide":"top"},
+		{"id":"e-sam1","fromNode":"s1","fromSide":"bottom","toNode":"card-samsung","toSide":"top","color":"1"},
+		{"id":"e-hyn1","fromNode":"s1","fromSide":"bottom","toNode":"card-hynix","toSide":"top","color":"1"},
+		{"id":"e-mac1","fromNode":"s1","fromSide":"bottom","toNode":"card-macro","toSide":"top","color":"3"},
+		{"id":"e-fed1","fromNode":"s1","fromSide":"bottom","toNode":"card-fed","toSide":"top","color":"3"},
+		{"id":"e-idx1","fromNode":"s1","fromSide":"bottom","toNode":"card-index","toSide":"top","color":"4"},
+		{"id":"e-etc1","fromNode":"s1","fromSide":"bottom","toNode":"card-etc","toSide":"top"},
+		{"id":"e-chrono1","fromNode":"s1","fromSide":"right","toNode":"s2","toSide":"left","color":"1"},
+		{"id":"e-chrono2","fromNode":"s2","fromSide":"right","toNode":"s3","toSide":"left","color":"1"},
+		{"id":"e-sam2","fromNode":"s2","fromSide":"bottom","toNode":"card-samsung","toSide":"top","color":"1"},
+		{"id":"e-hyn2","fromNode":"s2","fromSide":"bottom","toNode":"card-hynix","toSide":"top","color":"1"},
+		{"id":"e-idx2","fromNode":"s2","fromSide":"bottom","toNode":"card-index","toSide":"top","color":"4"},
+		{"id":"e-rot1","fromNode":"s2","fromSide":"bottom","toNode":"card-rotation","toSide":"top","color":"4"},
+		{"id":"e-etc2","fromNode":"s2","fromSide":"bottom","toNode":"card-etc","toSide":"top"}
+	]
+}

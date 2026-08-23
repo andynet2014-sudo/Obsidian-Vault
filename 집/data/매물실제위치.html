@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>매물 실제위치</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<style>
+  :root{
+    --bg:#f5f6f8; --panel:#ffffff; --text:#1c1f26; --muted:#6b7280;
+    --border:#e5e7eb; --accent:#3b6ef6; --accent-soft:#eaf0ff;
+    --good:#1a9e5c; --warn:#c8890a; --bad:#d64545;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#14161c; --panel:#1d2029; --text:#e7e9ee; --muted:#9aa1ad;
+      --border:#2c3140; --accent:#7ea2ff; --accent-soft:#22283b;
+      --good:#3ecb84; --warn:#e0a940; --bad:#f27272;
+    }
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;line-height:1.5;}
+  .wrap{max-width:1200px;margin:0 auto;padding:32px 20px 80px;}
+  h1{font-size:26px;margin:0 0 4px;}
+  .sub{color:var(--muted);margin:0 0 24px;font-size:14px;}
+  section{margin-bottom:36px;}
+  h2{font-size:18px;margin:0 0 14px;}
+
+  .gmaps-cta{
+    display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+    background:var(--accent-soft);border-radius:12px;padding:16px 18px;margin-bottom:16px;
+  }
+  .gmaps-cta b{display:block;font-size:14.5px;margin-bottom:3px;}
+  .gmaps-cta span{font-size:12.5px;color:var(--muted);}
+  .gmaps-cta a{background:var(--accent);color:#fff;text-decoration:none;font-weight:700;font-size:13px;padding:10px 18px;border-radius:9px;white-space:nowrap;}
+  .gmaps-cta a:hover{opacity:.9;}
+
+  #map{height:560px;border-radius:14px;border:1px solid var(--border);}
+  .map-note{color:var(--muted);font-size:12.5px;margin:10px 0 0;}
+  .leaflet-popup-content{font-size:13px;min-width:220px;}
+  .leaflet-popup-content b{font-size:14px;}
+  .leaflet-popup-content a.src{color:var(--accent);}
+  .popup-links a{display:inline-block;margin:6px 5px 0 0;padding:4px 8px;border-radius:8px;background:var(--accent-soft);color:var(--accent);text-decoration:none;font-size:12px;}
+
+  .scroll-x{overflow-x:auto;border-radius:12px;}
+  table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--border);border-radius:12px;overflow:hidden;font-size:12.8px;}
+  thead th{background:var(--accent-soft);color:var(--text);text-align:left;padding:9px 10px;font-weight:600;white-space:nowrap;position:sticky;top:0;}
+  tbody td{padding:9px 10px;border-top:1px solid var(--border);vertical-align:top;}
+  tbody tr:hover{background:var(--accent-soft);}
+  .chip{display:inline-block;font-size:11px;padding:2px 7px;border-radius:20px;background:var(--accent-soft);color:var(--accent);white-space:nowrap;}
+  .chip.good{background:rgba(26,158,92,.12);color:var(--good);}
+  .chip.warn{background:rgba(200,137,10,.12);color:var(--warn);}
+  .chip.bad{background:rgba(214,69,69,.12);color:var(--bad);}
+  .chip.bucket-priority{background:rgba(59,110,246,.14);color:var(--accent);font-weight:700;}
+  .name-link{color:var(--text);text-decoration:none;border-bottom:1px solid var(--border);font-weight:700;}
+  .name-link:hover{color:var(--accent);border-color:var(--accent);}
+
+  footer{color:var(--muted);font-size:12px;margin-top:32px;border-top:1px solid var(--border);padding-top:16px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>📍 매물 실제위치</h1>
+  <p class="sub">이사 매물 대시보드의 지도 전용 버전 · 실제 OpenStreetMap 타일 + 구글맵스 연동 · 활성 5건 · 2026.08.18 업데이트</p>
+
+  <section>
+    <div class="gmaps-cta">
+      <div>
+        <b>구글맵스에서 5건을 한번에 보기</b>
+        <span>API 키 없이 바로 열립니다 · 경로 형태로 전체 핀이 표시됩니다(최대 10곳까지만 경유지로 표시)</span>
+      </div>
+      <a id="gmaps-all" href="#" target="_blank" rel="noopener">구글맵스에서 전체 매물 보기</a>
+    </div>
+    <div id="map"></div>
+    <p class="map-note">
+      실제 지도(OpenStreetMap) 위에 5개 핀이 표시됩니다. 각 핀을 클릭하면 상세 정보와 함께 카카오맵·네이버지도·구글지도 개별 링크가 뜹니다. 번호는 대시보드/옵시디언과 동일한 번호 체계입니다.
+    </p>
+  </section>
+
+  <section>
+    <h2>매물 리스트</h2>
+    <div class="scroll-x">
+    <table id="prop-table">
+      <thead>
+        <tr>
+          <th>No.</th><th>매물명</th><th>구분</th><th>거주유형(세대수)</th><th>거래유형</th><th>가격(관리비)</th>
+          <th>대출/보증보험</th><th>주소</th><th>평수(전용/공급)</th><th>층</th><th>방/욕실</th>
+          <th>입주가능일</th><th>확인일(연차)</th><th>주차</th>
+        </tr>
+      </thead>
+      <tbody id="prop-tbody"></tbody>
+    </table>
+    </div>
+  </section>
+
+  <footer>
+    이 파일은 로컬 정적 HTML이라 외부 지도 SDK 로딩 제한이 없습니다. 새 매물이 추가되면 이 파일과 <a href="https://claude.ai/code/artifact/f722dde0-b54f-450e-bec7-f452a40279fd" target="_blank" rel="noopener">Claude Artifact 대시보드</a>를 함께 업데이트합니다. 제외매물은 이 지도에는 표시하지 않습니다(매물현황.md 참고).
+  </footer>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const properties = [
+  {no:31,name:"당산더채움 101동 (영등포구청역 도보 3분)",link:"https://fin.land.naver.com/map?zoom=16.911550482110844&layer=NobwRAlgJmBcYEMBOAXCBjANgUwPpWxQQkzABowAHZBAWwGc5xk0tsBJGeAJgDYAWAIz8ADAGYxATgAcYAL4V62ZOgAWABRoMmYAF4B7fbThhBvAHSTBggKw2R-ad2sjp-fvLkBdIA&center=3zehln-2AKfkm&realEstateTypes=A01-A04-B01-C02-A05-A06-A07-A02",type:"오피스텔(업무시설)",units:"112세대(해당면적 112세대)",deal:"월세",price:"보증금 2억 7,180만원",priceSub:"월 10만원 · 관리비 10만원",loan:"HUG버팀목 가능",loanLevel:"good",addr:"서울시 영등포구 당산동1가 260",area:"전용 8.45평 / 계약 11.2평",floor:"8/10층",room:"2/1",movein:"2026년 11월 초순 협의 가능",built:"2026.08.02 (7년차)",parking:"59대(세대당 0.52대)",bucket:"priority",lat:37.5235,lng:126.8988},
+  {no:32,name:"양평동4가 빌라(아트리버타운) (당산역 도보 6분)",link:"https://fin.land.naver.com/articles/2641793436",type:"빌라(다세대)",units:"세대수 정보없음",deal:"월세",price:"보증금 1억 9,000만원",priceSub:"월 40만원 · 관리비 8만원",loan:"버팀목·보증보험 가능",loanLevel:"good",addr:"서울시 영등포구 양평동4가 32-6",area:"전용 8.05평 / 공급 9.73평",floor:"5/6층",room:"1/1",movein:"즉시입주 협의 가능",built:"2026.08.04 (11년차)",parking:"18대(RV 기계식 불가, 자주식 여석 있을때만)",bucket:"priority",lat:37.53,lng:126.893},
+  {no:38,name:"프리스틴 (영등포시장역 도보 7분)",link:"",type:"오피스텔(업무시설)",units:"정보없음",deal:"전세",price:"2억 7,000만원",priceSub:"정보없음",loan:"정보없음",loanLevel:"warn",addr:"서울시 영등포구 영등포동7가 인근(상세주소 미기재)",area:"넓음(정보없음)",floor:"정보없음",room:"정보없음",movein:"2026년 9월 13일까지 무조건 입주",built:"2026.08.18 (정보없음)",parking:"SUV 가능",bucket:"priority",lat:37.521,lng:126.9088},
+  {no:40,name:"신현빌5차(주상복합) 1동 (영등포시장역 인근)",link:"https://fin.land.naver.com/map?zoom=14.379321259428021&layer=NobwRAlgJmBcYEMBOAXCBjANgUwPpWxQQkzABowAHZBAWwGc5xk0tsBJGeAJgDYAWAMwB2AByCAnAEZeYAL4V62ZOgAWABRoMmYAF4B7fbThgp-AHQiJg7lO4BWCf26iADLflyAukA&center=3zepil-2AKlmI",type:"오피스텔(업무시설)",units:"8세대(해당면적 4세대)",deal:"전세",price:"2억 9,000만원",priceSub:"관리비 8만원",loan:"정보없음",loanLevel:"warn",addr:"서울시 영등포구 당산동 121-163",area:"전용 8.53평 / 공급 10.36평",floor:"고/9층",room:"2/1",movein:"즉시입주(기존임차인 사정에 따라 협의 가능)",built:"2026.08.14 (6년차)",parking:"24대(세대당 0.5대)",bucket:"priority",lat:37.523,lng:126.9075},
+  {no:41,name:"당산디벨리움 101동 (영등포구청역 도보 8분)",link:"https://fin.land.naver.com/articles/2641823468",type:"오피스텔(업무시설)",units:"74세대",deal:"월세",price:"보증금 2억 6,100만원",priceSub:"월 15만원",loan:"정보없음",loanLevel:"warn",addr:"서울시 영등포구 당산동3가 6-3",area:"7.87평(전용)",floor:"고/10층",room:"2/1",movein:"2026년 10월 18일 입주",built:"2026.08.18 (8년차)",parking:"37대(세대당 0.5대)",bucket:"priority",lat:37.5265,lng:126.9025}
+];
+
+function loanChip(p){ return `<span class="chip ${p.loanLevel}">${p.loan}</span>`; }
+function bucketChip(p){ return p.bucket==="priority" ? `<span class="chip bucket-priority">우선순위</span>` : `<span class="chip">검토예정</span>`; }
+
+const tbody = document.getElementById("prop-tbody");
+properties.forEach(p=>{
+  const tr = document.createElement("tr");
+  tr.innerHTML = `
+    <td>${p.no}</td>
+    <td><a class="name-link" href="${p.link}" target="_blank" rel="noopener">${p.name}</a></td>
+    <td>${bucketChip(p)}</td>
+    <td>${p.type}<br><small>${p.units}</small></td>
+    <td>${p.deal}</td>
+    <td>${p.price}<br><small>${p.priceSub}</small></td>
+    <td>${loanChip(p)}</td>
+    <td>${p.addr}</td>
+    <td>${p.area}</td>
+    <td>${p.floor}</td>
+    <td>${p.room}</td>
+    <td>${p.movein}</td>
+    <td>${p.built}</td>
+    <td>${p.parking}</td>
+  `;
+  tbody.appendChild(tr);
+});
+
+(function(){
+  const addrs = properties.map(p=>p.addr).slice(0,10);
+  const origin = encodeURIComponent(addrs[0]);
+  const destination = encodeURIComponent(addrs[addrs.length-1]);
+  const waypoints = addrs.slice(1,-1).map(a=>encodeURIComponent(a)).join("|");
+  document.getElementById("gmaps-all").href =
+    `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&waypoints=${waypoints}&travelmode=driving`;
+})();
+
+const map = L.map('map').setView([37.5636, 126.997], 12);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19,
+  attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+
+const bounds = [];
+properties.forEach(p=>{
+  const marker = L.marker([p.lat, p.lng]).addTo(map);
+  bounds.push([p.lat, p.lng]);
+  const q = encodeURIComponent(p.addr);
+  const kakaoUrl = `https://map.kakao.com/link/search/${q}`;
+  const naverUrl = `https://map.naver.com/p/search/${q}`;
+  const googleUrl = `https://www.google.com/maps/search/?api=1&query=${q}`;
+  marker.bindPopup(`
+    <b>${p.no}. <a class="src" href="${p.link}" target="_blank" rel="noopener">${p.name}</a></b><br>
+    ${p.deal} · ${p.price}<br>
+    ${p.addr}<br>
+    <div class="popup-links">
+      <a href="${kakaoUrl}" target="_blank" rel="noopener">카카오맵</a>
+      <a href="${naverUrl}" target="_blank" rel="noopener">네이버지도</a>
+      <a href="${googleUrl}" target="_blank" rel="noopener">구글지도</a>
+    </div>
+  `);
+});
+map.fitBounds(bounds, {padding:[30,30]});
+</script>
+</body>
+</html>
