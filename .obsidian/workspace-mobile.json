@@ -11,10 +11,14 @@
             "id": "6af2ab061f544a3d",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "월가/월가아재 테슬라 평단 2달러인 월가의 전설, 이번 분기는 뭘 샀을까  Q2 13F 3부.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "새 탭"
+              "title": "월가아재 테슬라 평단 2달러인 월가의 전설, 이번 분기는 뭘 샀을까  Q2 13F 3부"
             }
           }
         ]
@@ -163,9 +167,13 @@
       "daily-notes:오늘의 일일 노트 열기": false,
       "templates:템플릿 삽입": false,
       "command-palette:명령어 팔레트 열기": false,
-      "bases:새 베이스 생성하기": false
+      "bases:새 베이스 생성하기": false,
+      "obsidian-git:Open Git source control": false
     }
   },
   "active": "6af2ab061f544a3d",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "월가/월가아재 테슬라 평단 2달러인 월가의 전설, 이번 분기는 뭘 샀을까  Q2 13F 3부.md",
+    "월가"
+  ]
 }
