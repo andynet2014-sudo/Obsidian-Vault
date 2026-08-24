@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "테스트 노트임.md",
+                "file": "주주환원 삼전 폭락? 제 생각은.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "테스트 노트임"
+              "title": "주주환원 삼전 폭락? 제 생각은"
             }
           }
         ],
@@ -132,7 +132,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "테스트 노트임.md",
+            "file": "주주환원 삼전 폭락? 제 생각은.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -189,9 +189,9 @@
   },
   "active": "f4e1c95d03022cfe",
   "lastOpenFiles": [
+    "테스트 노트임.md",
     "주주환원 삼전 폭락? 제 생각은 1.md",
     "월가/월가아재 테슬라 평단 2달러인 월가의 전설, 이번 분기는 뭘 샀을까  Q2 13F 3부.md",
-    "테스트 노트임.md",
     "/260824",
     "월가"
   ]
